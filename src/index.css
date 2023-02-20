@@ -1,0 +1,73 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+.calculator {
+  background: #ea8f3e;
+  display: grid;
+  margin-top: 2rem;
+  justify-content: center;
+  grid-template-columns: repeat(4, 6rem);
+  grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+}
+button {
+  font-size: 2rem;
+  outline: none;
+  background-color: #e0e0e0;
+  border: 0.25px grey solid;
+}
+
+button:hover {
+  background-color: #efefef;
+}
+
+.col-end-background {
+  background: #ea8f3e;
+  color: #fff;
+}
+
+.col-end-background:hover {
+  background-color: #f09e57;
+}
+
+.result {
+  background-color: #858793;
+  color: #fff;
+  grid-column: span 4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 0.25rem 0.75rem;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.result .current-content {
+  font-size: 2.4rem;
+}
+.result .previous-content {
+  font-size: 1.1rem;
+  color: rgb(169, 169, 169);
+}
+.col-span-2 {
+  grid-column-end: span 2;
+}
