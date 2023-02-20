@@ -31,7 +31,6 @@ function calculatorReducer(state, action) {
   switch (action.type) {
     case "reset":
       return {
-        ...state,
         currentValue: "0",
         previousValue: null,
         operator: null,
@@ -83,7 +82,7 @@ function calculatorReducer(state, action) {
         };
       if (state.currentValue === "0" && action.data !== "0")
         return { ...state, currentValue: action.data, overwrite: true };
-      if (state.currentValue.includes(".") && action.data === ".")
+      if (state.currentValue?.includes(".") && action.data === ".")
         return { ...state, decimal: false };
       if (state.decimal)
         return {
@@ -147,8 +146,9 @@ const calculateResult = ({ previousValue, operator, currentValue }) => {
 function App() {
   const [state, dispatch] = useReducer(calculatorReducer, {
     currentValue: "0",
-    overwrite: false,
-    decimal: false,
+    previousValue: null,
+    operator: null,
+    overwrite: true,
     percent: false,
   });
   return (
