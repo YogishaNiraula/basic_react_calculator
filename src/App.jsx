@@ -36,6 +36,7 @@ function calculatorReducer(state, action) {
         previousValue: null,
         operator: null,
         overwrite: true,
+        percent: false,
       };
 
     case "percent":
