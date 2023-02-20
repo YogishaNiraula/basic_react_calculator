@@ -39,7 +39,12 @@ function calculatorReducer(state, action) {
       };
 
     case "percent":
-      return { ...state, currentValue: state.currentValue / 100 };
+      if (state.percent) return state;
+      return {
+        ...state,
+        currentValue: state.currentValue / 100,
+        percent: true,
+      };
 
     case "operation":
       if (!state.currentValue && !state.previousValue) return state;
@@ -143,6 +148,7 @@ function App() {
     currentValue: "0",
     overwrite: false,
     decimal: false,
+    percent: false,
   });
   return (
     <div className="App">
