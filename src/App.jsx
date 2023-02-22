@@ -147,7 +147,12 @@ export const calculateResult = ({ previousValue, operator, currentValue }) => {
     default:
       break;
   }
-  return result.toString();
+  if (Number.isInteger(result)) {
+    return result.toString();
+  } else {
+    result = result.toFixed(2);
+    return result.toString();
+  }
 };
 
 export default function App() {
