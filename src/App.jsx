@@ -170,7 +170,9 @@ export default function App() {
             {state.currentValue}
           </div>
         </div>
-        <button onClick={() => dispatch({ type: "reset" })}>AC</button>
+        <button onClick={() => dispatch({ type: "reset" })} name="AC">
+          AC
+        </button>
         <button onClick={() => dispatch({ type: "change_sign" })}>+/-</button>
         <button onClick={() => dispatch({ type: "percent" })}>%</button>
         <OperatorButton
