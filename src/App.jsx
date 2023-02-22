@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import React, { useReducer } from "react";
 import "./App.css";
 
 function NumberButton({ dispatch, className, num }) {
@@ -42,7 +42,10 @@ function calculatorReducer(state, action) {
       if (state.percent) return state;
       return {
         ...state,
-        currentValue: state.currentValue / 100,
+        currentValue: calculateResult({
+          operator: "%",
+          currentValue: state.currentValue,
+        }),
         percent: true,
       };
 
@@ -118,7 +121,7 @@ function calculatorReducer(state, action) {
   }
 }
 
-const calculateResult = ({ previousValue, operator, currentValue }) => {
+export const calculateResult = ({ previousValue, operator, currentValue }) => {
   let previous = parseFloat(previousValue);
   let current = parseFloat(currentValue);
   let result = "";
@@ -137,13 +140,17 @@ const calculateResult = ({ previousValue, operator, currentValue }) => {
       break;
     case "+/-":
       result = -1 * current;
+      break;
+    case "%":
+      result = current / 100;
+      break;
     default:
       break;
   }
   return result.toString();
 };
 
-function App() {
+export default function App() {
   const [state, dispatch] = useReducer(calculatorReducer, {
     currentValue: "0",
     previousValue: null,
@@ -159,7 +166,9 @@ function App() {
             {state.previousValue}
             {state.operator}
           </div>
-          <div className="current-content">{state.currentValue}</div>
+          <div className="current-content" id="currentVal">
+            {state.currentValue}
+          </div>
         </div>
         <button onClick={() => dispatch({ type: "reset" })}>AC</button>
         <button onClick={() => dispatch({ type: "change_sign" })}>+/-</button>
@@ -206,5 +215,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
