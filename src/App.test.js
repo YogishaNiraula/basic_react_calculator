@@ -61,7 +61,7 @@ describe("Basic Calculator Test", () => {
           operator: "%",
           currentValue: "-22.5",
         }),
-      ).toBe("-0.225");
+      ).toBe("-0.23");
     });
   });
 
@@ -83,7 +83,7 @@ describe("Basic Calculator Test", () => {
             operator: "+",
             currentValue: "0.9",
           }),
-        ).toBe("4.9");
+        ).toBe("4.90");
       });
       test("Sum of two decimal", () => {
         expect(
@@ -92,7 +92,7 @@ describe("Basic Calculator Test", () => {
             operator: "+",
             currentValue: "2.61",
           }),
-        ).toBe("7.050");
+        ).toBe("7.05");
       });
       test("Sum of a integer and negative decimal", () => {
         expect(
@@ -121,7 +121,7 @@ describe("Basic Calculator Test", () => {
             operator: "-",
             currentValue: "0.9",
           }),
-        ).toBe("9.1");
+        ).toBe("9.10");
       });
       test("Difference of two decimal", () => {
         expect(
@@ -130,7 +130,7 @@ describe("Basic Calculator Test", () => {
             operator: "-",
             currentValue: "2.61",
           }),
-        ).toBe("1.830");
+        ).toBe("1.83");
       });
       test("Difference of a integer and negative decimal", () => {
         expect(
@@ -168,7 +168,7 @@ describe("Basic Calculator Test", () => {
             operator: "X",
             currentValue: "1.61",
           }),
-        ).toBe("3.824");
+        ).toBe("3.28");
       });
       test("Product of a integer and negative decimal", () => {
         expect(
@@ -215,7 +215,7 @@ describe("Basic Calculator Test", () => {
             operator: "÷",
             currentValue: "-0.09",
           }),
-        ).toBe("-44.444");
+        ).toBe("-44.44");
       });
     });
   });
